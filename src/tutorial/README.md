@@ -1,1 +1,0 @@
-# anro-gosk_wysokinski
