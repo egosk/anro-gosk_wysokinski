@@ -1,0 +1,8 @@
+prefix=/home/emigos/catkin_ws/devel
+
+Name: turtle_ijkl
+Description: Description of turtle_ijkl
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/emigos/catkin_ws/devel/lib 
+Requires: 
