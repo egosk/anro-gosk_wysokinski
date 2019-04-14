@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="params" value="${load_yaml('../config/urdf_params.yaml')}"/>
+ 
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+
+    <material name="white"> 
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+            <origin xyz="0 0 -0.025"/>
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <box size="${params['i2']['link_x_size']} 0.025 0.025"/>
+            </geometry>
+            <origin xyz="${params['i2']['link_xyz']}" rpy="${params['i2']['link_rpy']}"/>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <joint name="base_to_link1" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_1"/>
+        <origin xyz="${params['i1']['joint_xyz']}" rpy="${params['i1']['joint_rpy']}"/>
+    </joint>
+
+
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <box size="${params['i3']['link_x_size']} 0.025 0.025"/>
+            </geometry>
+            <origin xyz="${params['i3']['link_xyz']}" rpy="${params['i3']['link_rpy']}"/>
+            <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="link1_to_link2" type="fixed">
+        <parent link="link_1"/>
+        <child link="link_2"/>
+        <origin xyz="${params['i2']['joint_xyz']}" rpy="${params['i2']['joint_rpy']}"/>
+    </joint>
+
+
+    <link name="link_3">
+        <visual>
+            <geometry>
+                <cylinder length="0.02" radius="0.075"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <joint name="link2_to_link3" type="fixed">
+        <parent link="link_2"/>
+        <child link="link_3"/>
+        <origin xyz="${params['i3']['joint_xyz']}" rpy="${params['i3']['joint_rpy']}"/>
+    </joint>
+
+</robot>
