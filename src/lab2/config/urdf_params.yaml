@@ -15,4 +15,4 @@ i2:
   joint_rpy: 0.0 0 0
   link_x_size: 0.5
   link_xyz: 0.25 0 0
-link_rpy: 0 0 0
+  link_rpy: 0 0 0
