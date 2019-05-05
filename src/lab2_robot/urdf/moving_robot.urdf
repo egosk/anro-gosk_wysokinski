@@ -40,21 +40,27 @@
         </visual>
     </link>
 
-    <joint name="base_to_link1" type="fixed">
+    <joint name="base_to_link1" type="prismatic">
         <parent link="base_link"/>
         <child link="link_1"/>
         <origin xyz="${data['row1']['j_xyz']}" rpy="${data['row1']['j_rpy']}"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" lower="-${data['row1']['l_len']}" upper="0" velocity="0.5"/>
     </joint>
 
-    <joint name="link1_to_link2" type="fixed">
+    <joint name="link1_to_link2" type="prismatic">
         <parent link="link_1"/>
         <child link="link_2"/>
         <origin xyz="${data['row2']['j_xyz']}" rpy="${data['row2']['j_rpy']}"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" lower="-${data['row2']['l_len']}" upper="0" velocity="0.5"/>
     </joint>
 
-    <joint name="link2_to_link3" type="fixed">
+    <joint name="link2_to_link3" type="prismatic">
         <parent link="link_2"/>
         <child link="link_3"/>
         <origin xyz="${data['row3']['j_xyz']}" rpy="${data['row3']['j_rpy']}"/>
+        <limit effort="1000.0" lower="-${data['row3']['l_len']}" upper="0" velocity="0.5"/>
+        <axis xyz="0 0 1"/>
     </joint>
 </robot>
