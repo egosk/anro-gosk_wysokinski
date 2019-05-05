@@ -40,6 +40,15 @@
         </visual>
     </link>
 
+    <link name="link_4">
+	    <visual>
+            <geometry>
+                <sphere radius = "0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
     <joint name="base_to_link1" type="fixed">
         <parent link="base_link"/>
         <child link="link_1"/>
@@ -56,5 +65,11 @@
         <parent link="link_2"/>
         <child link="link_3"/>
         <origin xyz="${data['row3']['j_xyz']}" rpy="${data['row3']['j_rpy']}"/>
+    </joint>
+
+    <joint name="link3_to_link4" type="fixed">
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 </robot>
