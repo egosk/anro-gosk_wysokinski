@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="example_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="data" value="${load_yaml('../src/yaml_data_dh.yaml')}"/>
+    <xacro:property name="l_width" value="0.05"/>
+    
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.2" radius="0.2"/>
+            </geometry>
+            <origin xyz="0 0 -0.1"/>
+        </visual>
+    </link>
+
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <cylinder length ="${data['row1']['l_len']}" radius ="${l_width}"/>
+            </geometry>
+            <origin xyz="${data['row1']['l_xyz']}" rpy="${data['row1']['l_rpy']}"/>
+        </visual>
+    </link>
+
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <cylinder length="${data['row2']['l_len']}" radius ="${l_width}"/>
+            </geometry>
+            <origin xyz="${data['row2']['l_xyz']}" rpy="${data['row2']['l_rpy']}"/>
+        </visual>
+    </link>
+
+    <link name="link_3">
+	    <visual>
+            <geometry>
+                <cylinder length="${data['row3']['l_len']}" radius ="${l_width}"/>
+            </geometry>
+            <origin xyz="${data['row3']['l_xyz']}" rpy="${data['row3']['l_rpy']}"/>
+        </visual>
+    </link>
+
+    <link name="link_4">
+	    <visual>
+            <geometry>
+                <sphere radius = "0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <joint name="base_to_link1" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_1"/>
+        <origin xyz="${data['row1']['j_xyz']}" rpy="${data['row1']['j_rpy']}"/>
+    </joint>
+
+    <joint name="link1_to_link2" type="fixed">
+        <parent link="link_1"/>
+        <child link="link_2"/>
+        <origin xyz="${data['row2']['j_xyz']}" rpy="${data['row2']['j_rpy']}"/>
+    </joint>
+
+    <joint name="link2_to_link3" type="fixed">
+        <parent link="link_2"/>
+        <child link="link_3"/>
+        <origin xyz="${data['row3']['j_xyz']}" rpy="${data['row3']['j_rpy']}"/>
+    </joint>
+
+    <joint name="link3_to_link4" type="fixed">
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+</robot>
