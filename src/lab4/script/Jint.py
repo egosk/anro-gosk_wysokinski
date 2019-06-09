@@ -61,10 +61,10 @@ def processRequest(msg):
                 joint_states.position.append(x_positions[i] + ((positions[i]-x_positions[i])/(end_of_interpolation.to_sec()-start_of_interpolation.to_sec()))*(rospy.Time.now().to_sec()-start_of_interpolation.to_sec()))
             if  not -pi - eps <joint_states.position[1]<0. + eps:
                 rospy.logerr('joint has reached its limit!')
-                return 'joint 2 has reached its limit!'
+            #    return 'joint 2 has reached its limit!'
             if not -pi/2. - eps <joint_states.position[2]<pi/2. + eps:
                 rospy.logerr('joint has reached its limit!')
-                return 'joint 3 has reached its limit!'
+            #    return 'joint 3 has reached its limit!'
 
             pub.publish(joint_states)
             publishTrace(time)
@@ -93,10 +93,10 @@ def processRequest(msg):
             joint_states.name = ['joint1','joint2','joint3']
             if  not -pi<joint_states.position[1]<0.:
                 rospy.logerr('joint has reached its limit!')
-                return 'joint 2 has reached its limit!'
+            #    return 'joint 2 has reached its limit!'
             if not -pi/2.<joint_states.position[2]<pi/2.:
                 rospy.logerr('joint has reached its limit!')
-                return 'joint 3 has reached its limit!'
+            #    return 'joint 3 has reached its limit!'
             pub.publish(joint_states)
             publishTrace(time)
             last_positions = joint_states.position
