@@ -1,0 +1,6 @@
+float32 time
+float32[3] pos
+float32[3] rpy
+int32 mode
+---
+string status

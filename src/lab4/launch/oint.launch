@@ -1,0 +1,4 @@
+<launch>
+    <node name="oint" pkg="lab4" type="Oint.py"/>
+    
+</launch>
