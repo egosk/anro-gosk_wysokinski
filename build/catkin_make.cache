@@ -1,2 +1,2 @@
-beginner_tutorials:turtle_ijkl
--DCATKIN_DEVEL_PREFIX=/home/emigos/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/emigos/catkin_ws/install -G Unix Makefiles
+beginner_tutorials:lab2_robot:lab4:turtle_ijkl
+-DCATKIN_DEVEL_PREFIX=/home/damianski794/catkin_ws/src/anro-gosk_wysokinski/devel -DCMAKE_INSTALL_PREFIX=/home/damianski794/catkin_ws/src/anro-gosk_wysokinski/install -G Unix Makefiles

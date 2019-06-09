@@ -1,0 +1,18 @@
+s3:
+    joint_xyz: 0.1 0.0 0.0
+    joint_rpy: 0.0 -0.0 0.0
+    link_xyz: 0.05 0 0
+    link_rpy: 0 0 0
+    link_l: 0.1
+s2:
+    joint_xyz: 0.0 0.0 0.0
+    joint_rpy: -1.57 -0.0 0.0
+    link_xyz: 0.0 0 0
+    link_rpy: 0 0 0
+    link_l: 0.0
+s1:
+    joint_xyz: 0.0 0.0 0.0
+    joint_rpy: 0.0 -0.0 2.0
+    link_xyz: 0.0 0 0
+    link_rpy: 0 0 0
+    link_l: 0.0

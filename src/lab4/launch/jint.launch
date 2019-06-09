@@ -1,0 +1,6 @@
+<launch>
+    <rosparam command="load" file="$(find lab4)/param/params.yaml"/>
+    <param name="robot_description" command="xacro --inorder '$(find lab4)/urdf/mov.urdf'"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+    <node name="jint" pkg="lab4" type="Jint.py"/>
+</launch>
