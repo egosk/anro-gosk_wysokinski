@@ -18,9 +18,9 @@ def publishTrace(time):
     global viz_pub
     global i
     msg = Marker()
-    msg.header.frame_id = 'link3'
+    msg.header.frame_id = 'link4'
     msg.header.stamp = rospy.Time.now()
-    msg.ns = "xd"
+    msg.ns = "example_robot"
     i+=1
     msg.id = i
     msg.lifetime = rospy.Duration(time+3.)
