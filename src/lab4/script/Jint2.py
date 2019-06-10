@@ -59,10 +59,10 @@ def processRequest(msg):
             joint_states.name = ['base_to_link1','link1_to_link2','link2_to_link3']
             for i,joint in enumerate(positions):
                 joint_states.position.append(x_positions[i] + ((positions[i]-x_positions[i])/(end_of_interpolation.to_sec()-start_of_interpolation.to_sec()))*(rospy.Time.now().to_sec()-start_of_interpolation.to_sec()))
-            if  not -pi - eps <joint_states.position[1]<0. + eps:
+            if  not -2 - eps <joint_states.position[1]<0. + eps:
                 rospy.logerr('joint has reached its limit!')
             #    return 'joint 2 has reached its limit!'
-            if not -pi/2. - eps <joint_states.position[2]<pi/2. + eps:
+            if not -3 - eps <joint_states.position[2]<0 + eps:
                 rospy.logerr('joint has reached its limit!')
             #    return 'joint 3 has reached its limit!'
 
@@ -91,10 +91,10 @@ def processRequest(msg):
             joint_states.position = [a_*t**3 + b_*t**2 + c_*t + d_ for a_,b_,c_,d_ in zip(a,b,c,d)]
             joint_states.header.frame_id = 'base_link'
             joint_states.name = ['base_to_link1','link1_to_link2','link2_to_link3']
-            if  not -pi<joint_states.position[1]<0.:
+            if  not -2<joint_states.position[1]<0.:
                 rospy.logerr('joint has reached its limit!')
             #    return 'joint 2 has reached its limit!'
-            if not -pi/2.<joint_states.position[2]<pi/2.:
+            if not -3<joint_states.position[2]<0:
                 rospy.logerr('joint has reached its limit!')
             #    return 'joint 3 has reached its limit!'
             pub.publish(joint_states)
